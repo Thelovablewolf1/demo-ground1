@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | demo-ground</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md">
+        <!-- Signup Form -->
+        <div class="bg-white shadow-xl rounded-lg px-8 pt-8 pb-8 mb-4 transform transition-all duration-300 hover:shadow-2xl">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-800">Create Account</h1>
+                <p class="text-gray-600">Join demo-ground to explore all features</p>
+            </div>
+            
+            <form id="signupForm" class="space-y-4">
+                <div>
+                    <label for="fullname" class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="fullname" 
+                        name="fullname" 
+                        required
+                        class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="Your full name">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="your@email.com">
+                </div>
+                
+                <div>
+                    <label for="signup-username" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                    <input 
+                        type="text" 
+                        id="signup-username" 
+                        name="username" 
+                        required
+                        class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="Choose a username">
+                </div>
+                
+                <div>
+                    <label for="signup-password" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                    <input 
+                        type="password" 
+                        id="signup-password" 
+                        name="password" 
+                        required
+                        minlength="6"
+                        class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="Create a password">
+                </div>
+                
+                <div>
+                    <label for="confirm-password" class="block text-gray-700 text-sm font-bold mb-2">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="confirm-password" 
+                        name="confirm-password" 
+                        required
+                        class="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="Confirm your password">
+                </div>
+                
+                <div class="flex items-center">
+                    <input 
+                        id="terms" 
+                        name="terms" 
+                        type="checkbox"
+                        required
+                        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded transition">
+                    <label for="terms" class="ml-2 block text-sm text-gray-700">
+                        I agree to the <a href="#" class="text-blue-600 hover:text-blue-800 transition">Terms of Service</a>
+                    </label>
+                </div>
+                
+                <div class="space-y-4">
+                    <button 
+                        type="submit"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-200 transform hover:scale-[1.02]">
+                        Create Account
+                    </button>
+                    <div class="text-center text-sm">
+                        <span class="text-gray-600">Already have an account? </span>
+                        <a href="login.html" class="text-blue-600 hover:text-blue-800 transition">Login here</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/scripts.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Validate password match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // In a real app, you would send this data to your server
+            alert('Account created successfully! Redirecting to login...');
+            
+            // Redirect to login page after a delay
+            setTimeout(() => {
+                window.location.href = 'login.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
